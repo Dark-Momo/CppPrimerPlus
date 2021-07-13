@@ -8,10 +8,10 @@ Stock::Stock(const std::string& co, long n, double pr)	// Explicit constructor
 	std::cout << "Explicit Constructor for " << co << "Called!\n";
 
 	company = co; // company and co is standard string object, so it can use = for assignment.
-	if (n < 0)				// co is reference, so it will pass the addr of string literal to company from initilization code.
+	if (n < 0)    // co is reference, so it will pass the addr of string literal to company from initilization code.
 	{
 		std::cout	<< "Constructor - Number of shares can't be negative; "
-							<< company << "shares set to 0. \n";
+				<< company << "shares set to 0. \n";
 		shares = 0;
 	}
 	else
@@ -37,31 +37,31 @@ Stock::~Stock()
 }
 
 // acquire() is no longer necessary when constructor exists!
-/*
-void Stock::acquire(const std::string& co, long n, double pr)
-{
-	company = co;
-	if (n < 0)
-	{
-		std::cout	<< "Acquire - Number of shares can't be negative; "
-							<< company << "shares set to 0. \n";
-		shares = 0;
-	}
-	else
-	{
-		shares = n;
-		share_val = pr;
-	}
-	set_tot();
-}
-*/
+//
+//void Stock::acquire(const std::string& co, long n, double pr)
+//{
+//	company = co;
+//	if (n < 0)
+//	{
+//		std::cout	<< "Acquire - Number of shares can't be negative; "
+//							<< company << "shares set to 0. \n";
+//		shares = 0;
+//	}
+//	else
+//	{
+//		shares = n;
+//		share_val = pr;
+//	}
+//	set_tot();
+//}
+
 
 void Stock::buy(long num, double price)
 {
 	if (num <= 0)
 	{
-		std::cout	<< "Buy - operation number can't be negative, "
-							<< "operation cancelled!\n";
+		std::cout << "Buy - operation number can't be negative, "
+			  << "operation cancelled!\n";
 	}
 	else
 	{
@@ -77,13 +77,13 @@ void Stock::sell(long num, double price)
 
 	if (num <= 0)
 	{
-		cout	<< "Sell -  operation number can't be negative, "
-					<< "operation cancelled!\n";
+		cout << "Sell -  operation number can't be negative, "
+		     << "operation cancelled!\n";
 	}
 	else if (num > shares)
 	{
-		cout	<< "Sell -  operation number can't be more than you have! "
-					<< "Operation cancelled!\n";
+		cout << "Sell -  operation number can't be more than you have! "
+		     << "Operation cancelled!\n";
 	}
 	else
 	{
@@ -101,10 +101,10 @@ void Stock::update(double price)
 
 void Stock::show() const
 {
-	std::cout	<< "Company : " << company
-						<< " Shares : " << shares << '\n'
-						<< " Shares Price : $" << share_val
-						<< " Total Worth : $" << total_val << '\n';
+	std::cout << "Company : " << company
+	          << " Shares : " << shares << '\n'
+		  << " Shares Price : $" << share_val
+		  << " Total Worth : $" << total_val << '\n';
 }
 
 const Stock & Stock::topval(const Stock& s) const
@@ -114,6 +114,7 @@ const Stock & Stock::topval(const Stock& s) const
 	else
 		return *this;	// this is a pointer, adding * to dereference.
 }
+
 // topval() can be used as:
 // top = stock1.topval(stock2);
 // top = stock2.topval(stock1);

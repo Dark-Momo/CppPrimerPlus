@@ -7,10 +7,10 @@
 
 class Stock 
 {
-	private:									// private members can only be accessed by public functions, or friends.
-													// private is default, means if we don't have privae here, these members below are still private.
+	private:								// private members can only be accessed by public functions, or friends.
+										// private is default, means if we don't have privae here, these members below are still private.
 		std::string company;
-		long shares; // long is int type.
+		long shares;        // long is int type.
 		double share_val;
 		double total_val;
 		void set_tot() { total_val = shares * share_val; }		// Inline function. Can also be define in .cpp as 'inline void Stock::set_tot()'. 
@@ -56,6 +56,7 @@ class Stock
 		double total() const { return total_val; }
 
 		const Stock & topval(const Stock & s) const;	// 3 const here. Explanation on Page 15 of notes, Chapter 10.
-																								// s is the explicit invoked object used to compare, and this function also has an implicit invoked object.
+	        // s is the explicit invoked object used to compare, and this function also has an implicit invoked object.
 };
+
 #endif
